@@ -1,0 +1,17 @@
+Need:
+	- music
+	- art
+	- configurefile
+	- savefile
+Set rules:
+   - winning condition :
+		- check if 3 ooo
+   - loose condition :
+		- if other player win
+   - draw condition :
+		- no more box and no winning
+GamePlay:
+  - Player is mouse :
+	   - 
+  - Player can collied with box if overlaps and click
+  - Player must square to activate draw

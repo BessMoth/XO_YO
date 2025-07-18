@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2sfd1uqvj6vh"]
+
+[ext_resource type="Script" uid="uid://bx807ekdij5dy" path="res://src/xo_button.gd" id="1_jm6cy"]
+
+[node name="Button" type="Button"]
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 100
+text = "X"
+script = ExtResource("1_jm6cy")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

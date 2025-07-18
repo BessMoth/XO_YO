@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://beguf1d48adcx"]
+
+[ext_resource type="PackedScene" uid="uid://b2sfd1uqvj6vh" path="res://src/XOButton.tscn" id="1_ntavn"]
+[ext_resource type="Script" uid="uid://cemdtql02gmq1" path="res://src/main_ui.gd" id="1_qog1u"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qog1u")
+
+[node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Column" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" parent="Rows/Column" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Button2" parent="Rows/Column" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Button3" parent="Rows/Column" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Column2" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" parent="Rows/Column2" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Button2" parent="Rows/Column2" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Button3" parent="Rows/Column2" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Column3" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" parent="Rows/Column3" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Button2" parent="Rows/Column3" instance=ExtResource("1_ntavn")]
+layout_mode = 2
+
+[node name="Button3" parent="Rows/Column3" instance=ExtResource("1_ntavn")]
+layout_mode = 2
