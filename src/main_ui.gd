@@ -1,31 +1,71 @@
 extends Control
-var grid: Array[Node]
+class_name MainUi
+
 @onready var rows: VBoxContainer = $Rows
+@onready var pre_turn:bool = turn;
 
 var turn:bool = true
+var grid: Array[Node]
+
+func turn_to_string():
+	if pre_turn:
+		return "O"
+	else:
+		return "X"
+	
+var win_positions = [
+		[[0,0], [0,1], [0,2]],
+		[[1,0], [1,1], [1,2]],
+		[[2,0], [2,1], [2,2]],
+		[[0,0], [1,0], [2,0]],
+		[[0,1], [1,1], [2,1]],
+		[[0,2], [1,2], [2,2]],
+		[[0,0], [1,1], [2,2]],
+		[[0,2], [1,1], [2,0]]
+	]
+
+
+#region Init
+
+func restAllButtons()->void:
+	for i:HBoxContainer in grid:
+		for j:XOButton in i.get_children(false):
+			j.rest()
 
 func _ready() -> void:
 	grid = rows.get_children(true)
-	for i:HBoxContainer in grid:
-		for j:XOButton in i.get_children(false):
-			print(j.type)
-			
+	restAllButtons()
+	
+#endregion
+
 func _process(delta: float) -> void:
-	pass
-func SwitchTurn()->void:
-	turn = not turn
+	if isEnd():
+		end()
+	pre_turn = turn
+
 
 #region Ending
+func isComplete()->bool:
+	for i:HBoxContainer in grid:
+		for j:XOButton in i.get_children(false):
+			if j.text == "":
+				return false
+	return true
 
-func isWin()->bool:
-	return true
-	pass
-func isTie()->bool:
-	return true
-	pass
 func isEnd()->bool:
-	return true
-	pass
+	if isComplete() or isWin():
+		return true
+	return false
+
 func end()->void:
-	pass
+	get_tree().change_scene_to_file("res://src/intro_ui.tscn")
+
+func isWin() -> bool:
+	for pos in win_positions:
+		if rows.get_child(pos[0][0]).get_child(pos[0][1]).text == turn_to_string()\
+		and rows.get_child(pos[1][0]).get_child(pos[1][1]).text == turn_to_string()\
+		and rows.get_child(pos[2][0]).get_child(pos[2][1]).text == turn_to_string():
+			return true
+	return false
+
 #endregion
