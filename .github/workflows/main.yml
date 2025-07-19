@@ -7,6 +7,8 @@ on:
       - main  # or your main branch
 
 jobs:
+  deploy:
+     steps:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
