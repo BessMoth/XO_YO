@@ -1,12 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://beguf1d48adcx"]
 
 [ext_resource type="PackedScene" uid="uid://b2sfd1uqvj6vh" path="res://src/XOButton.tscn" id="1_ntavn"]
-
-[sub_resource type="GDScript" id="GDScript_ntavn"]
-script/source = "extends Control
-
-@onready var rows: VBoxContainer = $Rows
-"
+[ext_resource type="Script" uid="uid://c8whd47o6h18j" path="res://src/main_ui.gd" id="1_qog1u"]
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -15,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_ntavn")
+script = ExtResource("1_qog1u")
 
 [node name="Rows" type="VBoxContainer" parent="."]
 layout_mode = 1

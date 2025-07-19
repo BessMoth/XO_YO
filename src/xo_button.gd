@@ -1,12 +1,16 @@
 extends Button
+class_name XOButton
+
+var type: int = 0
+func rest()->void:
+	type = 0
+	text = ""
 
 func _on_button_up() -> void:
-	if text == "":
+	if type == 0:
+		return
+	if type == 1:
 		text = "O"
-		return
-	if text == "O":
+	if type == -1:
 		text = "X"
-		return
-	if text == "X":
-		text = ""
-		return
+	return

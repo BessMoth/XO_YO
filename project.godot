@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="XO"
-run/main_scene="uid://xfnpa5hjphjd"
+run/main_scene="uid://ccm7j44vph8fy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
