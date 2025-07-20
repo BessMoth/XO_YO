@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2sfd1uqvj6vh"]
+[gd_scene load_steps=3 format=3 uid="uid://b2sfd1uqvj6vh"]
 
 [ext_resource type="Script" uid="uid://bx807ekdij5dy" path="res://src/xo_button.gd" id="1_jm6cy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm6cy"]
+bg_color = Color(1, 0.131231, 0.501227, 1)
 
 [node name="Button" type="Button"]
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_jm6cy")
 script = ExtResource("1_jm6cy")
 
 [connection signal="button_up" from="." to="." method="_on_button_up"]
