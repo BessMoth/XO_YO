@@ -1,8 +1,8 @@
 extends Control
-
+const main_ui:PackedScene = preload("res://src/main_ui.tscn")
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/main_ui.tscn")
+	SceneTranslation.change_scene(main_ui)
 
 
 func _on_settings_pressed() -> void:

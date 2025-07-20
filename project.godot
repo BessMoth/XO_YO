@@ -16,6 +16,10 @@ run/main_scene="uid://ccm7j44vph8fy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneTranslation="*res://scene_translation.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -31,3 +35,4 @@ folder_colors={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(1, 0.129412, 0.501961, 1)

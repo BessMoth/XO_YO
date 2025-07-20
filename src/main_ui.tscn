@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c8whd47o6h18j" path="res://src/main_ui.gd" id="1_qog1u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qog1u"]
-bg_color = Color(0.966117, 0.361452, 0.462349, 1)
+bg_color = Color(0.74, 0, 0.382334, 1)
 
 [node name="MainUI" type="Control"]
 layout_mode = 3

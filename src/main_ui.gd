@@ -6,6 +6,7 @@ class_name MainUi
 
 var turn:bool = true
 var grid: Array[Node]
+var intro_ui: PackedScene = load("res://src/intro_ui.tscn")
 
 func turn_to_string():
 	if pre_turn:
@@ -58,7 +59,7 @@ func isEnd()->bool:
 	return false
 
 func end()->void:
-	get_tree().change_scene_to_file("res://src/intro_ui.tscn")
+	SceneTranslation.change_scene(intro_ui)
 
 func isWin() -> bool:
 	for pos in win_positions:
