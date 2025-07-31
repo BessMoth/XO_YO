@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccm7j44vph8fy"]
+[gd_scene load_steps=4 format=3 uid="uid://ccm7j44vph8fy"]
 
 [ext_resource type="Script" uid="uid://ce33640rb6pqb" path="res://src/intro_ui.gd" id="1_lsics"]
+[ext_resource type="PackedScene" uid="uid://dvyftvdu7jgke" path="res://src/pointer.tscn" id="2_a4rpr"]
+[ext_resource type="PackedScene" uid="uid://wamwgh1wwre5" path="res://src/custom_button.tscn" id="2_g3u4e"]
 
 [node name="IntroUI" type="Control"]
 layout_mode = 3
@@ -25,31 +27,30 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" parent="VBoxContainer" instance=ExtResource("2_g3u4e")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 70
-text = "Start
+text = "Start"
+
+[node name="Settings" parent="VBoxContainer" instance=ExtResource("2_g3u4e")]
+layout_mode = 2
+text = "Settings
 "
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("2_g3u4e")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 70
-text = "Settings"
+text = "Quit"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Pointer" parent="." instance=ExtResource("2_a4rpr")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 70
-text = "Quit
-"
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 237.0
+offset_top = 259.0
+offset_right = 477.0
+offset_bottom = 499.0
+menu_parent_path = NodePath("../VBoxContainer")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer/Start" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_pressed"]

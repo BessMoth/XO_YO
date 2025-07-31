@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SceneTranslation="*res://scene_translation.tscn"
+SceneTranslation="*res://src/scene_translation.tscn"
 
 [display]
 
