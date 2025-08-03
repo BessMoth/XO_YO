@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccm7j44vph8fy"]
+[gd_scene load_steps=6 format=3 uid="uid://ccm7j44vph8fy"]
 
 [ext_resource type="Script" uid="uid://ce33640rb6pqb" path="res://src/intro_ui.gd" id="1_lsics"]
-[ext_resource type="PackedScene" uid="uid://dvyftvdu7jgke" path="res://src/pointer.tscn" id="2_a4rpr"]
+[ext_resource type="Shader" uid="uid://ccscxyreixupi" path="res://src/intro_ui.gdshader" id="2_efrn2"]
 [ext_resource type="PackedScene" uid="uid://wamwgh1wwre5" path="res://src/custom_button.tscn" id="2_g3u4e"]
+[ext_resource type="Texture2D" uid="uid://bsc8je15gluir" path="res://res/XO.svg" id="3_efrn2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gky8"]
+shader = ExtResource("2_efrn2")
+shader_parameter/image = ExtResource("3_efrn2")
+shader_parameter/bg_color = Color(0.666531, 0.00727978, 0.619626, 1)
+shader_parameter/pattern_color = Color(1, 1, 1, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/rotation_angle = 0.0
 
 [node name="IntroUI" type="Control"]
 layout_mode = 3
@@ -12,6 +22,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lsics")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_4gky8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -39,17 +59,6 @@ text = "Settings
 [node name="Quit" parent="VBoxContainer" instance=ExtResource("2_g3u4e")]
 layout_mode = 2
 text = "Quit"
-
-[node name="Pointer" parent="." instance=ExtResource("2_a4rpr")]
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 237.0
-offset_top = 259.0
-offset_right = 477.0
-offset_bottom = 499.0
-menu_parent_path = NodePath("../VBoxContainer")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
